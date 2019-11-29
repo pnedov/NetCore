@@ -1,0 +1,7 @@
+C:\Projects\Constantinos\CurrencyProfitPair\CurrencyProfitPair\bin\Debug\CurrencyProfitPair.exe.config
+C:\Projects\Constantinos\CurrencyProfitPair\CurrencyProfitPair\bin\Debug\CurrencyProfitPair.exe
+C:\Projects\Constantinos\CurrencyProfitPair\CurrencyProfitPair\bin\Debug\CurrencyProfitPair.pdb
+C:\Projects\Constantinos\CurrencyProfitPair\CurrencyProfitPair\obj\Debug\CurrencyProfitPair.csproj.CoreCompileInputs.cache
+C:\Projects\Constantinos\CurrencyProfitPair\CurrencyProfitPair\obj\Debug\CurrencyProfitPair.exe
+C:\Projects\Constantinos\CurrencyProfitPair\CurrencyProfitPair\obj\Debug\CurrencyProfitPair.pdb
+C:\Projects\Constantinos\CurrencyProfitPair\CurrencyProfitPair\obj\Debug\CurrencyProfitPair.csprojResolveAssemblyReference.cache

@@ -1,0 +1,4 @@
+C:\Projects\Constantinos\MoviesBox\MoviesBox.BL\obj\Debug\netcoreapp2.0\MoviesBox.BL.csprojResolveAssemblyReference.cache
+C:\Projects\Constantinos\MoviesBox\MoviesBox.BL\obj\Debug\netcoreapp2.0\MoviesBox.BL.csproj.CoreCompileInputs.cache
+C:\Projects\Constantinos\MoviesBox\MoviesBox.BL\obj\Debug\netcoreapp2.0\MoviesBox.BL.AssemblyInfoInputs.cache
+C:\Projects\Constantinos\MoviesBox\MoviesBox.BL\obj\Debug\netcoreapp2.0\MoviesBox.BL.AssemblyInfo.cs

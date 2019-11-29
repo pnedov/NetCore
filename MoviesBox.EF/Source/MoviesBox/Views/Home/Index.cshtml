@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    string movieCounter = (ViewData["TotalResults"] == null) ? "" : $"Total films: {ViewData["TotalResults"]}";
+}
+
+@model PaginatedList<MoviesBox.BL.Model.SearchDetails>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form id="form1" class="form-inline" action="/Home/Index" method="get">
+                <input class="form-control" type="search" placeholder="Search movie"
+                       aria-label="Search" value="@ViewData["CurrentFilter"]" name="searchParam">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <span style="padding-left:5px;">@movieCounter</span>
+            </form>
+        </div>
+    </div>
+    @if (Model != null)
+    {
+        <div class="row">
+            <div class="col mt-2">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                Title
+                            </th>
+                            <th class="text-center">
+                                Year
+                            </th>
+                            <th class="text-center">
+                                Imdb Id
+                            </th>
+                            <th class="text-center">
+                                Poster
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Foreach loop-->
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a href="@Url.RouteUrl("MovieDetails", new { imdbIdParam = item.ImdbID })">
+                                        @item.Title
+                                    </a>
+                                </td>
+                                <td>@item.Year</td>
+                                <td>
+                                    <a href="@Url.RouteUrl("MovieDetails", new { imdbIdParam = item.ImdbID })">
+                                        @item.ImdbID
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a href="@Url.RouteUrl("MovieDetails", new { imdbIdParam = item.ImdbID })">
+                                        <img src="@Url.Content(item.Poster)" alt="@item.Title" title="@item.Title" class="img-thumbnail rounded" />
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @{
+                    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                }
+
+                <a asp-action="Index"
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="btn btn-default @prevDisabled">
+                    Previous
+                </a>
+                <a asp-action="Index"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="btn btn-default @nextDisabled">
+                    Next
+                </a>
+            </div>
+        </div>
+    }
+</div>

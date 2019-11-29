@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MoviesBox.DB\MoviesBox.DB.csproj" />
+    <ProjectReference Include="..\MoviesBox.Services\MoviesBox.Services.csproj" />
+    <ProjectReference Include="..\MoviesBox.SharedLogic\MoviesBox.SharedLogic.csproj" />
+  </ItemGroup>
+
+</Project>
