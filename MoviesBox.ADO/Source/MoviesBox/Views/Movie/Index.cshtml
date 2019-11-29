@@ -1,0 +1,190 @@
+﻿@{
+    ViewData["Title"] = "Movie Page";
+}
+@model MoviesBox.SharedLogic.IMovieFullInfo
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <button onclick="history.go(-1); return false;" class="btn btn-outline-success my-2 my-sm-0" type="button">
+                <<< Back
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-2">
+            @if (Model != null)
+            {
+
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-left" colspan="2">
+                                Details
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@nameof(Model.Title)</td>
+                            <td>
+                                <a href="@ViewBag.ImDbUrl">
+                                    @Model.Title
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Actors)</td>
+                            <td>@Model.Actors</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Year)</td>
+                            <td>@Model.Year</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Rated)</td>
+                            <td>@Model.Rated</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(v => v.Released)</td>
+                            <td>
+                                @if (Model.Released == System.Data.SqlTypes.SqlDateTime.MinValue)
+                                {
+                                    @Html.Raw("N/A");
+                                }
+                                else
+                                {
+                                    @Html.Raw(Model.Released.ToString("MM/dd/yyyy"));
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Runtime)</td>
+                            <td>@Model.Runtime</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Genre)</td>
+                            <td>@Model.Genre</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Director)</td>
+                            <td>@Model.Director</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Writer)</td>
+                            <td>@Model.Writer</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Plot)</td>
+                            <td>@Model.Plot</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Language)</td>
+                            <td>@Model.Language</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Country)</td>
+                            <td>@Model.Country</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Awards)</td>
+                            <td>@Model.Awards</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Poster)</td>
+                            <td>
+                                <a href="@ViewBag.ImDbUrl">
+                                    <img src="@Url.Content(Model.Poster)" alt="@Model.Title"
+                                         title="@Model.Title" class="img-thumbnail rounded" />
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Ratings
+                            </td>
+                            <td>
+                                <table>
+                                    <thead>
+                                    <th>Source</th>
+                                    <th>Rate</th>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model.Ratings != null)
+                                        {
+                                            @foreach (var item in Model.Ratings)
+                                            {
+                                                <tr>
+                                                    <td>@item.Source</td>
+                                                    <td>@item.Value</td>
+                                                </tr>
+                                            }
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Metascore)</td>
+                            <td>@Model.Metascore</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(v => v.ImdbRating)</td>
+                            <td>@Model.ImdbRating</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(v => v.ImdbVotes)</td>
+                            <td>@Model.ImdbVotes</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(v => v.ImdbID)</td>
+                            <td>@Model.ImdbID</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Type)</td>
+                            <td>@Model.Type</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(v => v.ReleaseDateDvd)</td>
+                            <td>
+                                @if (Model.ReleaseDateDvd == System.Data.SqlTypes.SqlDateTime.MinValue)
+                                {
+                                    @Html.Name("N/A");
+                                }
+                                else
+                                {
+                                    @Html.Raw(Model.ReleaseDateDvd.ToString("MM/dd/yyyy"));
+
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(v => v.BoxOffice)</td>
+                            <td>@Model.BoxOffice</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Production)</td>
+                            <td>@Model.Production</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Website)</td>
+                            <td>@Model.Website</td>
+                        </tr>
+                        <tr>
+                            <td>@nameof(Model.Response)</td>
+                            <td>@Model.Response</td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col">
+                        <p>So sorry! Nothing found for your requested movie.</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MoviesBox.Model\MoviesBox.EFModel.csproj" />
+    <ProjectReference Include="..\MoviesBox.Services\MoviesBox.Services.csproj" />
+    <ProjectReference Include="..\MoviesBox.SharedLogic\MoviesBox.SharedLogic.csproj" />
+  </ItemGroup>
+
+</Project>
